@@ -135,3 +135,102 @@ border-width: 1px;
   display: flex;
   flex-direction: column;
 }
+
+/* css MAINPAGE */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;  
+  overflow: hidden;
+  box-sizing: border-box;
+  background-color: #111111;
+}
+
+.bg_main {
+  position: relative;
+  width: 65vmin;
+  height: 65vmin;
+  flex-shrink: 0;
+}
+
+.bgGlobe_main {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  display: block;
+  cursor: pointer;
+}
+
+.semuabola {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.Bolabola {
+  background: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 3.5vmin;
+  height: 3.5vmin;
+  margin-left: -1.75vmin;
+  margin-top: -1.75vmin;
+  border-radius: 50%;
+  color: #572a2a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.1vmin;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s ease;
+  pointer-events: auto;
+}
+
+.Bolabola p {
+  margin: 0;
+}
+
+.Bolabola:hover {
+  filter: brightness(0.95);
+  transform: var(--pos) scale(1.1);
+}
+
+:root {
+  --radius: 35vmin;
+}
+
+.Bolabola:nth-child(1) { --pos: rotate(100deg)    translate(var(--radius)) rotate(-100deg); }
+.Bolabola:nth-child(2) { --pos: rotate(126.67deg) translate(var(--radius)) rotate(-126.67deg); }
+.Bolabola:nth-child(3) { --pos: rotate(153.33deg) translate(var(--radius)) rotate(-153.33deg); }
+.Bolabola:nth-child(4) { --pos: rotate(180deg)    translate(var(--radius)) rotate(-180deg); }
+.Bolabola:nth-child(5) { --pos: rotate(206.67deg) translate(var(--radius)) rotate(-206.67deg); }
+.Bolabola:nth-child(6) { --pos: rotate(233.33deg) translate(var(--radius)) rotate(-233.33deg); }
+.Bolabola:nth-child(7) { --pos: rotate(260deg)    translate(var(--radius)) rotate(-260deg); }
+
+.Bolabola {
+  transform: var(--pos);
+}
+.header{
+  background-color: aqua;
+  display: flex;
+  top: ;
+  
+}
