@@ -2,6 +2,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { BarChart3, Calendar } from 'lucide-react';
 interface JournalEntry {
   id: number;
   tanggal: string;
@@ -26,7 +27,7 @@ for (let i = 0; i < 7; i++) {
   tanggal.setDate(tanggal.getDate() + i);
   tujuhHari.push(tanggal);
 }
-
+const hariIniString = hariIni.toISOString().split('T')[0];
 const handleClickGlobe =()=>{
   setIsmalam(!Ismalam)
 }
@@ -51,9 +52,24 @@ useEffect(() => {
   return (
     
 <div className='page-wrapper'>
-  <div className='header'>
-    <h1>JOUR</h1>
+
+  <div className='navbar'>
+    <h1 className='judul'>JOUR</h1>
+    <div className='iconNavbar'>
+      <div className='icon_nav' onClick={() => navigate('/stastistik')}>
+        <h1><BarChart3 size={18} /></h1>
+      </div >
+      <div className='icon_nav' onClick={() => navigate('/kalender')}>
+        <h1><Calendar size={18} /></h1>
+      </div>
+    </div> 
   </div>
+
+  
+  <button className='write-btn' onClick={() => navigate(`/journal/${hariIniString}`)}>
+  Write
+  </button>
+
     <div className='bg_main'>
       <img
         className='bgGlobe_main'
