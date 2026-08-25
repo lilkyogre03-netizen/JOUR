@@ -153,7 +153,7 @@ html, body {
   height: 100vh;  
   overflow: hidden;
   box-sizing: border-box;
-  background-color: #111111;
+ 
    font-family: 'Poppins', sans-serif;
 }
 
@@ -167,7 +167,7 @@ html, body {
 .bgGlobe_main {
   position: absolute;
   top: 0;
-  left: 0;
+  left: 30%;
   width: 100% !important;
   height: 100% !important;
   object-fit: cover;
@@ -187,7 +187,7 @@ html, body {
   background: white;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 70%;
   width: 3.5vmin;
   height: 3.5vmin;
   margin-left: -1.75vmin;
@@ -230,7 +230,7 @@ html, body {
   transform: var(--pos);
 }
 .navbar{
-  background-color: rgb(0, 0, 0);
+  
   z-index: 10;
   display: flex;
   justify-content: space-between;
@@ -276,4 +276,46 @@ html, body {
   font-weight: 600;
   cursor: pointer;
   z-index: 10;
+}
+.Namauser{
+  top: 25%;
+  z-index: 10;
+  position: absolute;
+  left: 50px;
+  width: auto;
+  display: flex;
+  color: #ffffff;
+  font-size: 2.5rem;
+}
+.kata1{
+    top: 30%;
+  z-index: 10;
+  position: absolute;
+  left: 50px;
+  width: auto;
+  display: flex;
+  color: #ffffff;
+  font-size: 1.3rem;
+  z-index: 11;
+  gap: 10px;
+  flex-direction: column;
+}
+.kata2{
+    top: 33%;
+  z-index: 10;
+  position: absolute;
+  left: 50px;
+  width: auto;
+  display: flex;
+  color: #ffffff;
+  font-size: 1.3rem;
+  z-index: 11;
+  gap: 10px;
+  flex-direction: column;
+}
+.Videobg{
+  z-index: -100;
+  width: 100dvw;
+  position: absolute;
+  height: 100vh;
 }

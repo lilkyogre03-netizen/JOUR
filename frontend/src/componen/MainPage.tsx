@@ -15,7 +15,7 @@ function MainPage() {
   const { token } = useAuth();
   const [entries, setEntries] = useState<JournalEntry[]>([]);
   const navigate=useNavigate();
-const [Ismalam,setIsmalam]=useState(true)
+const [Ismalam,setIsmalam]=useState(false)
 const hariIni = new Date();
 const angkaHari = hariIni.getDay();
 const jarakKeSenin = (angkaHari - 1 + 7) % 7;
@@ -49,6 +49,22 @@ useEffect(() => {
   fetchEntries();
 }, []); 
 
+const [namaUser, setNamaUser] = useState('');
+
+useEffect(() => {
+  const fetchProfile = async () => {
+    const response = await fetch(`http://127.0.0.1:5000/profile`,{
+    method:'GET',
+    headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      }
+    });
+    const data=await response.json();
+    setNamaUser(data.nama)
+  };
+  fetchProfile();
+}, []);
   return (
     
 <div className='page-wrapper'>
@@ -62,13 +78,30 @@ useEffect(() => {
       <div className='icon_nav' onClick={() => navigate('/kalender')}>
         <h1><Calendar size={18} /></h1>
       </div>
+      <div className='icon_nav' onClick={() => navigate('/login')}>
+        <h1>Log-Out</h1>
+      </div>
     </div> 
   </div>
 
+  <div >
+    <h1 className='Namauser'>
+      HAI {namaUser}....
+    </h1>
+    <p className='kata1' >
+      Jangan lupa minum hari ini dan hari selanjutnya
+    </p>
+    < p className='kata2'>
+      Ayok tulis kesan pesan mu untuk hari ini
+    </p>
+  </div>
   
   <button className='write-btn' onClick={() => navigate(`/journal/${hariIniString}`)}>
   Write
   </button>
+  <div className='Videobg'>
+    <video src="/stary.mp4"></video>
+  </div>
 
     <div className='bg_main'>
       <img
