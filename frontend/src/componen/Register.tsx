@@ -26,6 +26,11 @@ function Register() {
   };
   return (
     <div className='pageRegis'>
+
+      <div className='judulregisdanlogin'>
+      
+        <h1 >JOUR</h1>
+      </div>
       <div className='bg'>
         <img className='bgGlobe' src="/GLOBE_DAY1.png" alt="siang" />
       </div>

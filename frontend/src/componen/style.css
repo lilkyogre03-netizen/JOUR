@@ -319,3 +319,25 @@ html, body {
   position: absolute;
   height: 100vh;
 }
+.Videobg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* css lainya */
+.judulregisdanlogin{
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 30%;
+  left: 12%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1rem 1.5rem;
+}
+.judulregisdanlogin h1{
+  color:white;
+  font-size: 3.5rem;
+}
