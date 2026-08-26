@@ -28,7 +28,6 @@ function Register() {
     <div className='pageRegis'>
 
       <div className='judulregisdanlogin'>
-      
         <h1 >JOUR</h1>
       </div>
       <div className='bg'>
@@ -62,7 +61,7 @@ function Register() {
             value={tanggal_lahir}
             onChange={(e) => settanggal_lahir(e.target.value)}
             placeholder="tanggal_lahir"/>
-            <button className='daftarButton' type="submit">Daftar</button>
+          <button className='daftarbutton' type="submit">Daftar</button>
         </form>
       </div>
       <p>{error}</p>

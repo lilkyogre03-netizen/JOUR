@@ -29,6 +29,9 @@ const  handleSubmit =async (e: React.FormEvent<HTMLFormElement> ) => {
   };
   return (
     <div className='pageLogin'>
+      <div className='judulregisdanlogin'>
+        <h1>JOUR</h1>
+      </div>
       <div className='bg'>
         <img className='bgGlobe' src="/GLOBE_DAY1.png" alt="siang" />
       </div>
