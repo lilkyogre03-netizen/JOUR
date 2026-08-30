@@ -76,10 +76,11 @@ function JournalPage() {
   }
 }, [waktuAktif, dataPagi, dataMalam]);
 
-    const handleclicksubmit = async () => {
-        const dataAktif = waktuAktif === 'pagi';
+    const handleclicksubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+        const dataAktif = waktuAktif === 'pagi'? dataPagi : dataMalam;
         if (dataAktif) {
-          const response = await fetch(`http://127.0.0.1:5000/entries/${tanggal}`, {
+          const response = await fetch(`http://127.0.0.1:5000/entries/${tanggal}/${waktuAktif}`, {
             method: 'PATCH',
             headers: {
               'Content-Type': 'application/json',
@@ -89,12 +90,9 @@ function JournalPage() {
               judul: judul,
               pesan: pesan,
               mood: mood,
+              tanggal:tanggal
             }),
           });
-          const data = await response.json();
-          setJudul(data.judul),
-          setPesan(data.pesan),
-          setMood(data.mood)
         } else {
             const response = await fetch(`http://127.0.0.1:5000/entries/${tanggal}`, {
             method: 'POST',
@@ -106,20 +104,23 @@ function JournalPage() {
               judul: judul,
               pesan: pesan,
               mood: mood,
+              tanggal:tanggal,
+              waktu_entry:waktuAktif
             }),
           });
-        const data = await response.json();
-          setJudul(data.judul),
-          setPesan(data.pesan),
-          setMood(data.mood)
         }
     };
   return (
     <div>
       <h1>Journal untuk tanggal: {tanggal}</h1>
       <div className='Videobg'><video src="./stary.mp4"></video></div>
-      <div className='Bumicomponen'><img src={waktuAktif ? '/GLOBE_DAY1.png' : '/GLOBE_NIGHT1.png'} alt="" /></div>
-      {/* <div><button onClick={ada}>TOGGLE WAKTU</button></div> */}
+      <div className='Bumicomponen'><img src={waktuAktif === 'pagi' ? '/GLOBE_DAY1.png' : '/GLOBE_NIGHT1.png'} alt="" /></div>
+      <button onClick={() => setWaktuAktif(waktuAktif === 'pagi' ? 'malam' : 'pagi')} >toggle waktu</button>
+      <form action="" onSubmit={handleclicksubmit}>
+        <textarea rows={1} onChange={(e)=> setJudul(e.target.value)}></textarea>
+
+        <button type='submit'>Simpan</button>
+      </form>
     </div>
   );
 }
