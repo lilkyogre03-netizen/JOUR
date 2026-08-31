@@ -140,7 +140,7 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .page-wrapper {
@@ -314,7 +314,7 @@ html, body {
 .Videobg{
   z-index: -100;
   width: 100dvw;
-  position: absolute;
+  position: fixed;
   height: 100vh;
 }
 .Videobg video {
@@ -338,4 +338,56 @@ html, body {
 .judulregisdanlogin h1{
   color:white;
   font-size: 3.5rem;
+}
+
+/* css entries siang */
+.Bumicomponen{
+  position: fixed;
+  left: 40%;
+  top: 10%;
+  width: 10000px;
+  height: 4000px;
+  z-index: -9;
+}
+.togglewaktu{
+  background: rgb(255, 251, 251);
+  position: fixed;
+  right: 3%;
+  top: 3%;
+  padding: 12px 24px;
+  border-radius: 24px;
+}
+.inputJudul{
+  position: absolute;
+  background: white;
+  top: 12%;
+  left: 15%;
+  padding: 0px 150px;
+  border-radius: 20px;
+  font-size: 1.7rem ;
+  font-weight: 600;
+  display: flex;
+  height: 60px;
+  justify-items: center;
+  border: none;
+}
+.inputPesan{
+  background: transparent;
+  position: absolute;
+  width: 40%;
+  top: 25%;
+  left: 12%;
+
+  background: repeating-linear-gradient(
+    white,
+    white 31px,
+    #ccc 32px,
+    #ccc 33px
+  );
+  line-height: 32px;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  font-size: 1.3rem;
+  padding: 0px 10px 0px 10px;
 }

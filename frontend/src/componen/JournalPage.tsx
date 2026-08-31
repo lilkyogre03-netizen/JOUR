@@ -75,7 +75,15 @@ function JournalPage() {
     setJudul('')
   }
 }, [waktuAktif, dataPagi, dataMalam]);
-
+const getMoodColor = (nilai: number): string => {
+  if (nilai <= 2) {
+    return '#FF6B6B'; // merah - mood rendah
+  } else if (nilai === 3) {
+    return '#FFD93D'; // kuning - mood netral
+  } else {
+    return '#6BCB77'; // hijau - mood tinggi
+  }
+};
     const handleclicksubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
         const dataAktif = waktuAktif === 'pagi'? dataPagi : dataMalam;
@@ -112,15 +120,30 @@ function JournalPage() {
     };
   return (
     <div>
-      <h1>Journal untuk tanggal: {tanggal}</h1>
-      <div className='Videobg'><video src="./stary.mp4"></video></div>
+      <div className='Videobg'><video src="/stary.mp4"></video></div>
       <div className='Bumicomponen'><img src={waktuAktif === 'pagi' ? '/GLOBE_DAY1.png' : '/GLOBE_NIGHT1.png'} alt="" /></div>
-      <button onClick={() => setWaktuAktif(waktuAktif === 'pagi' ? 'malam' : 'pagi')} >toggle waktu</button>
+      <button className='togglewaktu' onClick={() => setWaktuAktif(waktuAktif === 'pagi' ? 'malam' : 'pagi')} >toggle waktu</button>
       <form action="" onSubmit={handleclicksubmit}>
-        <textarea rows={1} onChange={(e)=> setJudul(e.target.value)}></textarea>
-
+        <input className='inputJudul' type="text" value={judul} onChange={(e)=> setJudul(e.target.value)} placeholder='isi judul hari ini' />
+        <textarea className='inputPesan' rows={20} value={pesan} onChange={(e)=> setPesan(e.target.value)}></textarea>
+        <div className="mood-container">
+        <div className="mood-number" style={{ color: getMoodColor(mood) }}>
+          {mood}
+        </div>
+        <span className="mood-max">/ 5</span>
+        <input
+          type="range"
+          min={1}
+          max={5}
+          value={mood}
+          onChange={(e) => setMood(Number(e.target.value))}
+          className="mood-slider"
+          style={{ accentColor: getMoodColor(mood) }}
+            />
+          </div>
         <button type='submit'>Simpan</button>
       </form>
+      
     </div>
   );
 }
