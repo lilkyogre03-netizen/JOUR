@@ -141,6 +141,7 @@ html, body {
   padding: 0;
   height: 100%;
   /* overflow: hidden; */
+  overflow-x: hidden;
 }
 
 .page-wrapper {
@@ -339,55 +340,106 @@ html, body {
   color:white;
   font-size: 3.5rem;
 }
+/* css entries */
+.journal-layout {
+  display: flex;
+  height: 100vh;
+  gap: 1rem;
+  box-sizing: border-box;
+  overflow-x: hidden;
+
+}
+.journal-form-area {
+  flex: 1.2; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+}
+.Bumicomponen{
+
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  
+  
+}
 
 /* css entries siang */
-.Bumicomponen{
+.BUMI{
   position: fixed;
-  left: 40%;
-  top: 10%;
-  width: 10000px;
-  height: 4000px;
-  z-index: -9;
-}
-.togglewaktu{
-  background: rgb(255, 251, 251);
-  position: fixed;
-  right: 3%;
-  top: 3%;
-  padding: 12px 24px;
-  border-radius: 24px;
+  display: flex;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
+  display: block;
 }
 .inputJudul{
-  position: absolute;
-  background: white;
-  top: 12%;
-  left: 15%;
-  padding: 0px 150px;
-  border-radius: 20px;
-  font-size: 1.7rem ;
-  font-weight: 600;
-  display: flex;
-  height: 60px;
-  justify-items: center;
-  border: none;
-}
-.inputPesan{
   background: transparent;
   position: absolute;
-  width: 40%;
-  top: 25%;
-  left: 12%;
-
+  top: 10%;
+  padding: 0px 10px 0px 10px;
+  border: none;
+  justify-items: center;
+  font-size: 2.5rem;
+  border-radius: 24px;
+  color: white;
+}
+.inputPesan{
+  top: 20%;
+  background: white;
+  position: absolute;
+  resize: none;
+  width: 35%;
+  font-size: 1.2rem;
   background: repeating-linear-gradient(
-    white,
-    white 31px,
-    #ccc 32px,
-    #ccc 33px
+    transparent,
+    white 2px,
+    transparent 1px,
+    transparent 28px
   );
-  line-height: 32px;
+  line-height: 35px;
   border: none;
   outline: none;
   border-radius: 20px;
   font-size: 1.3rem;
-  padding: 0px 10px 0px 10px;
+  padding: 0px 20px 0px 20px;
+  color: white;
+}
+.togglewaktu{
+  background: rgb(255, 251, 251);
+  position: fixed;
+  right: 2%;
+  top: 3%;
+  padding: 12px 24px;
+  border-radius: 24px;
+}
+.judulMood{
+  position: absolute;
+  top: 95%;
+  font-size: 2rem;
+  color: white;
+}
+.mood-number{
+  position: absolute;
+  top: 105%;
+  left: 26.9%;
+  font-size: 2rem;
+}
+.mood-slider{
+  position: absolute;
+  top: 112%;
+  left: 10%;
+  width: 35%;
+
+
+}
+.submitJournal{
+  background: rgb(255, 251, 251);
+  position: absolute;
+  top: 120%;
+  padding: 12px 24px;
+  border-radius: 24px;
 }

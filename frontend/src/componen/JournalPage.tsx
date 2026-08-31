@@ -77,11 +77,11 @@ function JournalPage() {
 }, [waktuAktif, dataPagi, dataMalam]);
 const getMoodColor = (nilai: number): string => {
   if (nilai <= 2) {
-    return '#FF6B6B'; // merah - mood rendah
+    return '#FF6B6B'; 
   } else if (nilai === 3) {
-    return '#FFD93D'; // kuning - mood netral
+    return '#FFD93D'; 
   } else {
-    return '#6BCB77'; // hijau - mood tinggi
+    return '#6BCB77'; 
   }
 };
     const handleclicksubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -119,18 +119,17 @@ const getMoodColor = (nilai: number): string => {
         }
     };
   return (
-    <div>
+    <div className='journal-layout'>
       <div className='Videobg'><video src="/stary.mp4"></video></div>
-      <div className='Bumicomponen'><img src={waktuAktif === 'pagi' ? '/GLOBE_DAY1.png' : '/GLOBE_NIGHT1.png'} alt="" /></div>
-      <button className='togglewaktu' onClick={() => setWaktuAktif(waktuAktif === 'pagi' ? 'malam' : 'pagi')} >toggle waktu</button>
-      <form action="" onSubmit={handleclicksubmit}>
+      <form action="" className='journal-form-area'>
         <input className='inputJudul' type="text" value={judul} onChange={(e)=> setJudul(e.target.value)} placeholder='isi judul hari ini' />
         <textarea className='inputPesan' rows={20} value={pesan} onChange={(e)=> setPesan(e.target.value)}></textarea>
+        <h1 className='judulMood'>SKALA MOOD ANDA :</h1>
         <div className="mood-container">
         <div className="mood-number" style={{ color: getMoodColor(mood) }}>
           {mood}
         </div>
-        <span className="mood-max">/ 5</span>
+        
         <input
           type="range"
           min={1}
@@ -141,9 +140,13 @@ const getMoodColor = (nilai: number): string => {
           style={{ accentColor: getMoodColor(mood) }}
             />
           </div>
-        <button type='submit'>Simpan</button>
+          <button type='submit' className='submitJournal'>Simpan</button>
       </form>
-      
+      <div className='Bumicomponen'>
+          <img src={waktuAktif === 'pagi' ? '/GLOBE_DAY1.png' : '/GLOBE_NIGHT1.png'} alt="" className='BUMI'/>
+           
+           <button className='togglewaktu' onClick={() => setWaktuAktif(waktuAktif === 'pagi' ? 'malam' : 'pagi')} >toggle waktu</button>
+      </div>
     </div>
   );
 }
