@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import { Await, data, useParams } from 'react-router-dom';
+import { Await, data, useNavigate, useParams} from 'react-router-dom';
 import { useAuth } from '../AuthContext';
+import { Navigate } from 'react-router-dom';
 import './style.css';
 
 interface JournalEntryDetail {
@@ -15,13 +16,24 @@ interface JournalEntryDetail {
 function JournalPage() {
   const { tanggal } = useParams();
   const { token } = useAuth();
-
+  const [gambarFile, setGambarFile] = useState<File | null>(null);
   const [waktuAktif, setWaktuAktif] = useState<'pagi' | 'malam'>('pagi');
   const [dataPagi, setDataPagi] = useState<JournalEntryDetail | null>(null);
   const [dataMalam, setDataMalam] = useState<JournalEntryDetail | null>(null);
   const [judul, setJudul] = useState('');
   const [pesan, setPesan] = useState('');
   const [mood, setMood] = useState(5);
+  const navigate = useNavigate();
+
+  const tanggalObj = new Date(tanggal + 'T00:00:00'); 
+
+
+  const tanggalFormatted = tanggalObj.toLocaleDateString('id-ID', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
 
   useEffect(() => {
     const fetchPagi = async () => {
@@ -100,9 +112,10 @@ const getMoodColor = (nilai: number): string => {
               mood: mood,
               tanggal:tanggal
             }),
+            
           });
         } else {
-            const response = await fetch(`http://127.0.0.1:5000/entries/${tanggal}`, {
+            const response = await fetch(`http://127.0.0.1:5000/entries`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -119,14 +132,76 @@ const getMoodColor = (nilai: number): string => {
         }
     };
   return (
-    <div className='journal-layout'>
+    <div className='journal-layout'  style={{ flexDirection: waktuAktif === 'malam' ? 'row-reverse' : 'row' }}
+> 
       <div className='Videobg'><video src="/stary.mp4"></video></div>
-      <form action="" className='journal-form-area'>
-        <input className='inputJudul' type="text" value={judul} onChange={(e)=> setJudul(e.target.value)} placeholder='isi judul hari ini' />
+
+      <form action="" className='journal-form-area' onSubmit={handleclicksubmit}>
+        <div className="Journalbox">
+            <div className="labeltanggal">
+            <span className='tanggal-line'></span>
+            {tanggalFormatted}
+          </div>
+          <input className='inputjudul' type="text" value={judul} onChange={(e)=> setJudul(e.target.value)} placeholder='Hari Ini' />
+          <textarea className='inputPesan' rows={20} value={pesan} onChange={(e)=> setPesan(e.target.value)}></textarea>
+          <div className="bawahform">
+            <label className="upload-box">
+            <input 
+              type="file" 
+              accept="image/*"
+              onChange={(e) => setGambarFile(e.target.files?.[0] ?? null)}
+              className="upload-input-hidden"
+            />
+            {gambarFile ? gambarFile.name : 'Masukkan foto anda'}
+            </label>
+            <div className="slider">
+              <p>Skala Mood</p>
+              <input
+              type="range"
+              min={1}
+              max={5}
+              value={mood}
+              onChange={(e) => setMood(Number(e.target.value))}
+              className="mood-slider"
+              style={{ accentColor: getMoodColor(mood) }}
+              />
+              {mood}
+            </div>
+          </div>    
+        </div>  
+        <button type='submit' className='submitJournal'>Simpan</button>
+      </form>
+
+      <div className='Bumicomponen'>
+          <img src={waktuAktif === 'pagi' ? '/GLOBE_DAY1.png' : '/GLOBE_NIGHT1.png'} alt="" className='BUMI'/>
+           <button className='togglewaktu' onClick={() => setWaktuAktif(waktuAktif === 'pagi' ? 'malam' : 'pagi')} >toggle waktu</button>
+      </div>
+       <button type="button" onClick={() => navigate('/')} className='kembali'>Kembali</button>
+    </div>
+  );
+}
+
+export default JournalPage;
+
+
+
+
+
+
+  {/* <input className='inputJudul' type="text" value={judul} onChange={(e)=> setJudul(e.target.value)} placeholder='isi judul hari ini' />
         <textarea className='inputPesan' rows={20} value={pesan} onChange={(e)=> setPesan(e.target.value)}></textarea>
+        <label className="upload-box">
+        <input 
+          type="file" 
+          accept="image/*"
+          onChange={(e) => setGambarFile(e.target.files?.[0] ?? null)}
+          className="upload-input-hidden"
+        />
+        {gambarFile ? gambarFile.name : 'Masukkan foto anda'}
+      </label>
         <h1 className='judulMood'>SKALA MOOD ANDA :</h1>
         <div className="mood-container">
-        <div className="mood-number" style={{ color: getMoodColor(mood) }}>
+        <div className="mood-number" style={{ color: getMoodColor(mood),  }}>
           {mood}
         </div>
         
@@ -140,15 +215,4 @@ const getMoodColor = (nilai: number): string => {
           style={{ accentColor: getMoodColor(mood) }}
             />
           </div>
-          <button type='submit' className='submitJournal'>Simpan</button>
-      </form>
-      <div className='Bumicomponen'>
-          <img src={waktuAktif === 'pagi' ? '/GLOBE_DAY1.png' : '/GLOBE_NIGHT1.png'} alt="" className='BUMI'/>
-           
-           <button className='togglewaktu' onClick={() => setWaktuAktif(waktuAktif === 'pagi' ? 'malam' : 'pagi')} >toggle waktu</button>
-      </div>
-    </div>
-  );
-}
-
-export default JournalPage;
+          <button type='submit' className='submitJournal'>Simpan</button> */}

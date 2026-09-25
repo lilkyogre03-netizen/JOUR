@@ -355,7 +355,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
+ 
 }
 .Bumicomponen{
 
@@ -376,7 +376,7 @@ html, body {
   border-radius: 50%;
   display: block;
 }
-.inputJudul{
+/* .inputJudul{
   background: transparent;
   position: absolute;
   top: 10%;
@@ -389,6 +389,7 @@ html, body {
 }
 .inputPesan{
   top: 20%;
+  padding-top: 0%;
   background: white;
   position: absolute;
   resize: none;
@@ -418,28 +419,155 @@ html, body {
 }
 .judulMood{
   position: absolute;
-  top: 95%;
+  top: 110%;
   font-size: 2rem;
   color: white;
 }
+.mood-container{
+  justify-content: center;
+
+}
 .mood-number{
   position: absolute;
-  top: 105%;
-  left: 26.9%;
+  top: 115%;
   font-size: 2rem;
 }
 .mood-slider{
   position: absolute;
-  top: 112%;
-  left: 10%;
+  top: 122%;
+  right: 0;
+  left: 0;
   width: 35%;
-
-
 }
+
 .submitJournal{
   background: rgb(255, 251, 251);
   position: absolute;
-  top: 120%;
+  top: 130%;
   padding: 12px 24px;
   border-radius: 24px;
+}
+.upload-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 15%;
+  border: 2px dashed rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  margin: 1rem 0;
+  position: absolute;
+  top:90%;
+}
+
+.upload-input-hidden {
+  display: none;
+} */
+
+.Journalbox{
+  background:rgb(0, 0, 0);
+  padding: 40px 0px 0px 0px;
+  flex-direction: column;
+  display: flex;
+  width: 60%;
+  gap: 10px;
+
+}
+.labeltanggal{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  margin-right: 70%;
+}
+.tanggal-line {
+  width: 24px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+}
+.inputjudul{
+color: white;
+font-size: 2.5rem;
+width: 100%;
+}
+.inputjudul::placeholder {
+  color: rgba(255, 255, 255, 0.993);
+
+}
+.inputPesan {
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: none;
+  color: white;
+  font-size: 1.5rem;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent ,
+    transparent 27px,
+    rgba(248, 247, 247, 0.993) 28px
+  );
+  line-height: 28px;
+  
+  width: 100%;
+}
+
+.upload-box {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 20px;
+  cursor: pointer;
+  
+}
+.upload-input-hidden {
+  display: none;
+}
+.bawahform{
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30%;
+ 
+}
+
+.slider{
+  display: flex;
+  flex-direction: column;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+}
+.togglewaktu{
+  background: rgb(255, 251, 251);
+  position: fixed;
+  right: 2%;
+  top: 3%;
+  padding: 12px 24px;
+  border-radius: 24px;
+}
+.submitJournal{
+  color: #141414;
+  background: white;
+  border-radius: 24px;
+  width: 12%;
+  height: 3%;
+  margin-top: 3%;
+}
+.kembali{
+  color: #ffffff;
+  background: #000;
+ position: fixed;
+ bottom: 5%;
+ right: 4%;
+ z-index: 100;
 }
