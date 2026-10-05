@@ -72,7 +72,7 @@ useEffect(() => {
   <div className='navbar'>
     <h1 className='judul'>JOUR</h1>
     <div className='iconNavbar'>
-      <div className='icon_nav' onClick={() => navigate('/stastistik')}>
+      <div className='icon_nav' onClick={() => navigate('/statistik')}>
         <h1><BarChart3 size={18} /></h1>
       </div >
       <div className='icon_nav' onClick={() => navigate('/kalender')}>

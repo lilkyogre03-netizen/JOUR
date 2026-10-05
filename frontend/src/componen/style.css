@@ -571,3 +571,200 @@ width: 100%;
  right: 4%;
  z-index: 100;
 }
+.statistik-layout {
+  display: flex;
+  min-height: 100vh;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  color: white;
+}
+
+.statistik-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 1.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 10;
+}
+
+.logout-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.statistik-sidebar {
+  position: fixed;
+  top: 10vh;
+  left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+}
+
+.statistik-sidebar button {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: left;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.statistik-sidebar .sidebar-active {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.statistik-content {
+
+  
+  margin-left: 220px;
+  padding: 150px 60px 60px;
+  max-width: 700px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 5;
+
+}
+
+.statistik-title {
+  font-family: 'Georgia', serif;
+  font-size: 42px;
+  font-weight: 400;
+  margin: 8px 0 0;
+}
+
+.statistik-subtitle {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  margin: 8px 0 30px;
+}
+
+.statistik-card {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  height: 30%;
+  margin-bottom: 24px;
+  width:100vh;
+}
+
+.statistik-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.statistik-card-header span {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 13px;
+}
+
+.statistik-chart-area {
+  
+  display: flex;
+  gap: 20px;
+}
+
+.statistik-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  white-space: nowrap;
+}
+
+.statistik-summary {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px 24px;
+  margin-bottom: 30px;
+}
+
+.statistik-average {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.statistik-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.statistik-circle span {
+  background: #0a0a0a;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.summary-label {
+  margin: 0;
+  font-size: 14px;
+}
+
+.summary-sub {
+  margin: 0;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.statistik-pill {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  padding: 10px 16px;
+  font-size: 13px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.statistik-pill span {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+}
+.Bumistatistik{
+  display: flex;
+  position: relative;
+
+  align-items: center;
+  justify-content: center;
+  left: 10%;
+flex:1;
+width: 10vh;
+height: 100vh;
+}
+.Bumistatistik img{
+  width: 50vh;
+height: 50vh;
+}
